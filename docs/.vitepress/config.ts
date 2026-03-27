@@ -10,6 +10,7 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: 'GSD 笔记', link: '/ai-coding/gsd/' },
+      { text: 'Docker 笔记', link: '/notes/docker/' },
     ],
 
     sidebar: {
@@ -60,9 +61,52 @@ export default defineConfig({
         },
       ],
 
-      // 未来其他工具可以在这里添加，例如：
-      // '/ai-coding/cursor/': [...],
-      // '/ai-coding/mcp/': [...],
+      // Docker 笔记
+      '/notes/docker/': [
+        {
+          text: '入门',
+          collapsed: false,
+          items: [
+            { text: 'Docker 概览', link: '/notes/docker/' },
+            { text: '安装与配置', link: '/notes/docker/installation' },
+            { text: '核心概念', link: '/notes/docker/basic-concepts' },
+          ],
+        },
+        {
+          text: '使用',
+          collapsed: false,
+          items: [
+            { text: '镜像管理', link: '/notes/docker/images' },
+            { text: '容器操作', link: '/notes/docker/containers' },
+          ],
+        },
+        {
+          text: '深入',
+          collapsed: false,
+          items: [
+            { text: 'Dockerfile 详解', link: '/notes/docker/dockerfile' },
+            { text: '数据持久化', link: '/notes/docker/volumes' },
+            { text: 'Docker 网络', link: '/notes/docker/networking' },
+          ],
+        },
+        {
+          text: '实战',
+          collapsed: false,
+          items: [
+            { text: 'Docker Compose', link: '/notes/docker/compose' },
+            { text: '多阶段构建', link: '/notes/docker/multi-stage' },
+            { text: 'Docker 与 CI/CD', link: '/notes/docker/cicd' },
+          ],
+        },
+        {
+          text: '进阶',
+          collapsed: false,
+          items: [
+            { text: '最佳实践', link: '/notes/docker/best-practices' },
+            { text: '常见问题与排查', link: '/notes/docker/troubleshooting' },
+          ],
+        },
+      ],
     },
 
     search: {
