@@ -1,11 +1,11 @@
 ---
-title: GSD (Get Shit Done) 概览
+title: GSD 概览
 description: 让 Claude Code 变得可靠的上下文工程系统
 ---
 
-# GSD (Get Shit Done)
+# GSD 概览
 
-**一个轻量但强大的元提示、上下文工程与规格驱动开发系统，适用于 Claude Code。**
+> GSD (Get Shit Done) - 一个轻量但强大的元提示、上下文工程与规格驱动开发系统
 
 ## 解决什么问题
 
@@ -76,8 +76,21 @@ GSD 会管理 Claude 完成工作所需的一切上下文：
 
 ## 学习路径
 
+### 入门
 1. [安装配置](./installation) - 安装 GSD 到你的项目
+
+### 使用
 2. [核心工作流](./workflow) - 理解 discuss → plan → execute → verify 循环
 3. [常用命令](./commands) - 掌握日常使用的命令
-4. [实战示例](./examples) - 通过示例学习
-5. [技巧 & 踩坑](./tips) - 最佳实践
+
+### 深入
+4. [配置文件详解](./configuration) - 理解 config.json 的各项配置
+5. [.planning/ 目录](./planning-directory) - 了解 GSD 生成的文件结构
+6. [代理系统](./agents) - 各个代理的角色和职责
+
+### 案例
+7. [实战示例](./examples) - 通过示例学习
+8. [技巧 & 踩坑](./tips) - 最佳实践
+
+### 原理
+9. [上下文工程原理](./context-engineering) - 理解 GSD 如何解决 context rot
