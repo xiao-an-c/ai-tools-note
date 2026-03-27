@@ -166,6 +166,80 @@ healthcheck:
 
 ## 常用命令
 
+### up 启动命令详解
+
+```bash
+# 启动（后台运行）— 镜像已存在则直接使用
+docker compose up -d
+
+# 启动并重新构建镜像（有 build 配置的 service）
+docker compose up -d --build
+
+# 强制构建且不使用任何层缓存
+docker compose up -d --build --no-cache
+```
+
+**`up --build` 完整流程**（以 Node.js 项目为例）：
+
+假设 compose.yaml 如下：
+
+```yaml
+services:
+  app:
+    build: ./app          # 需要构建
+    ports:
+      - "3000:3000"
+  mysql:
+    image: mysql:8.0      # 直接拉取，不需要构建
+```
+
+执行 `docker compose up -d --build` 时：
+
+```
+1. 读取 compose.yaml
+   └→ 发现 app 有 build 配置，mysql 只有 image
+
+2. 构建镜像（仅 app）
+   ├→ 读取 ./app/Dockerfile
+   │  FROM node:20-alpine
+   │  WORKDIR /app
+   │  COPY package*.json ./
+   │  RUN npm ci
+   │  COPY . .
+   │  CMD ["node", "server.js"]
+   │
+   ├→ 发送 ./app/ 目录作为构建上下文给 Docker Daemon
+   ├→ 逐层执行（未变化的层使用缓存）
+   └→ 打标签：myproject-app:latest
+
+3. 拉取镜像（仅 mysql）
+   └→ docker pull mysql:8.0（本地没有时才拉取）
+
+4. 创建资源（如果不存在）
+   ├→ 默认网络：myproject_default
+   └→ volumes（如果配置了）
+
+5. 按依赖顺序启动容器
+   ├→ mysql 先启动 → 健康检查通过
+   └→ app 后启动 → 连接网络、挂载卷、映射端口
+
+6. -d 后台运行，命令返回
+```
+
+**三个命令的区别**：
+
+| 命令 | 镜像已存在时 | 构建 |
+|------|------------|------|
+| `docker compose up -d` | 直接使用，跳过构建 | 不构建 |
+| `docker compose up -d --build` | 重新构建（利用层缓存） | 构建 |
+| `docker compose up -d --build --no-cache` | 重新构建（不使用缓存） | 全量构建 |
+
+::: tip
+`--build` 不是 `--no-cache`。它仍然会利用 Docker 层缓存——只有 Dockerfile 指令或文件（如 package.json）发生变化时，才会重新执行对应的层及后续所有层。只有加 `--no-cache` 才会完全不使用缓存。
+:::
+
+### 其他常用命令
+
 ```bash
 # 启动（后台运行）
 docker compose up -d
