@@ -46,6 +46,7 @@ export default defineConfig({
           items: [
             { text: '实战示例', link: '/ai-coding/gsd/examples' },
             { text: '技巧 & 踩坑', link: '/ai-coding/gsd/tips' },
+            { text: '需求变更', link: '/ai-coding/gsd/milestone' },
           ],
         },
         {
