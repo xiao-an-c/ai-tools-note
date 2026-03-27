@@ -21,6 +21,7 @@ export default defineConfig({
           items: [
             { text: '工具概览', link: '/ai-coding/gsd/' },
             { text: '安装配置', link: '/ai-coding/gsd/installation' },
+            { text: '中文设置', link: '/ai-coding/gsd/chinese' },
           ],
         },
         {
@@ -45,8 +46,9 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: '实战示例', link: '/ai-coding/gsd/examples' },
-            { text: '技巧 & 踩坑', link: '/ai-coding/gsd/tips' },
             { text: '需求变更', link: '/ai-coding/gsd/milestone' },
+            { text: '中断恢复', link: '/ai-coding/gsd/interruption' },
+            { text: '技巧 & 踩坑', link: '/ai-coding/gsd/tips' },
           ],
         },
         {
