@@ -11,9 +11,23 @@ export default defineConfig({
       { text: '首页', link: '/' },
       { text: 'GSD 笔记', link: '/ai-coding/gsd/' },
       { text: 'Docker 笔记', link: '/notes/docker/' },
+      { text: 'Anthropic 博客', link: '/ai-coding/anthropic-blog/' },
     ],
 
     sidebar: {
+      // Anthropic 工程博客笔记
+      '/ai-coding/anthropic-blog/': [
+        { text: '概览', link: '/ai-coding/anthropic-blog/' },
+        {
+          text: 'Harness 设计',
+          collapsed: false,
+          items: [
+            { text: '译文', link: '/ai-coding/anthropic-blog/harness-design/translation' },
+            { text: '讲解', link: '/ai-coding/anthropic-blog/harness-design/explain' },
+          ],
+        },
+      ],
+
       // GSD 笔记 - 只在 /ai-coding/gsd/ 路径下显示
       '/ai-coding/gsd/': [
         {
