@@ -147,7 +147,7 @@ export default defineConfig({
         text: '随笔',
         collapsed: false,
         items: [
-          { text: '关于我自己', link: '/life/' },
+          { text: '命与运', link: '/life/' },
         ],
       },
     ],
