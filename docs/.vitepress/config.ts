@@ -154,6 +154,7 @@ export default defineConfig({
             { text: '消极见壁，积极见路', link: '/life/消极见壁，积极见路' },
             { text: '三观与原则', link: '/life/三观与原则' },
             { text: '相信', link: '/life/相信' },
+            { text: '内求', link: '/life/内求' },
           ],
         },
       ],
