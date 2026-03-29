@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## 关于推送远端Git仓库
+
+需要使用者同意才能推送
+
 ## 常用命令
 
 ```bash
@@ -32,6 +36,7 @@ npm run docs:preview  # 预览构建结果
 ## 笔记模板
 
 每个工具目录的 `index.md` 建议包含：
+
 - 工具简介和核心概念
 - 官方资源链接
 - 指向其他笔记页面的链接
