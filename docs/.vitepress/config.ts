@@ -28,6 +28,7 @@ export default defineConfig({
       { text: 'GSD 笔记', link: '/ai-coding/gsd/' },
       { text: 'Docker 笔记', link: '/notes/docker/' },
       { text: 'Anthropic 博客', link: '/ai-coding/anthropic-blog/' },
+      { text: '人生感悟', link: '/life/' },
     ],
 
     sidebar: {
@@ -139,6 +140,18 @@ export default defineConfig({
         },
       ],
     },
+
+    // 人生感悟
+    '/life/': [
+      {
+        text: '随笔',
+        collapsed: false,
+        items: [
+          { text: '关于我自己', link: '/life/' },
+        ],
+      },
+    ],
+  },
 
     search: {
       provider: 'local',
