@@ -152,6 +152,8 @@ export default defineConfig({
             { text: '事务都是多面的', link: '/life/事务都是多面的' },
             { text: '理解但选择性赞同', link: '/life/理解但选择性赞同' },
             { text: '消极见壁，积极见路', link: '/life/消极见壁，积极见路' },
+            { text: '三观与原则', link: '/life/三观与原则' },
+            { text: '相信', link: '/life/相信' },
           ],
         },
       ],
