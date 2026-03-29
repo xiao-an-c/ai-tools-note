@@ -139,19 +139,18 @@ export default defineConfig({
           ],
         },
       ],
-    },
 
-    // 人生感悟
-    '/life/': [
-      {
-        text: '随笔',
-        collapsed: false,
-        items: [
-          { text: '命与运', link: '/life/' },
-        ],
-      },
-    ],
-  },
+      // 人生感悟
+      '/life/': [
+        {
+          text: '随笔',
+          collapsed: false,
+          items: [
+            { text: '命与运', link: '/life/' },
+          ],
+        },
+      ],
+    },
 
     search: {
       provider: 'local',
