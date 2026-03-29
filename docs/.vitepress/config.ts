@@ -150,6 +150,7 @@ export default defineConfig({
             { text: '命与运', link: '/life/命与运' },
             { text: '赢', link: '/life/赢' },
             { text: '事务都是多面的', link: '/life/事务都是多面的' },
+            { text: '理解但选择性赞同', link: '/life/理解但选择性赞同' },
           ],
         },
       ],
