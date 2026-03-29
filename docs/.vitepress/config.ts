@@ -149,6 +149,7 @@ export default defineConfig({
             { text: '概览', link: '/life/' },
             { text: '命与运', link: '/life/命与运' },
             { text: '赢', link: '/life/赢' },
+            { text: '事务都是多面的', link: '/life/事务都是多面的' },
           ],
         },
       ],
