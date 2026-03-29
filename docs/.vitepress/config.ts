@@ -146,6 +146,7 @@ export default defineConfig({
           text: '随笔',
           collapsed: false,
           items: [
+            { text: '概览', link: '/life/' },
             { text: '命与运', link: '/life/命与运' },
           ],
         },
