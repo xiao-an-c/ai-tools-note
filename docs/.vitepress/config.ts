@@ -6,6 +6,22 @@ export default defineConfig({
   title: '学习笔记',
   description: '记录学习过程',
 
+  markdown: {
+    config: (md) => {
+      // 自定义 mermaid 代码块渲染 - 使用 Vue 组件
+      const defaultRender = md.renderer.rules.fence!
+      md.renderer.rules.fence = (tokens, idx, options, env, self) => {
+        const token = tokens[idx]
+        if (token.info.trim() === 'mermaid') {
+          const code = token.content.trim()
+          const escapedCode = md.utils.escapeHtml(code)
+          return `<Mermaid code="${escapedCode}" />`
+        }
+        return defaultRender(tokens, idx, options, env, self)
+      }
+    }
+  },
+
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
@@ -71,6 +87,7 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: '上下文工程原理', link: '/ai-coding/gsd/context-engineering' },
+            { text: '进度追踪原理', link: '/ai-coding/gsd/progress-tracking' },
           ],
         },
       ],
