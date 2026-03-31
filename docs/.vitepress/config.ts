@@ -34,16 +34,71 @@ export default defineConfig({
       { text: 'AI 笔记', items: [
         { text: 'GSD 笔记', link: '/ai-coding/gsd/' },
         { text: 'Anthropic 博客', link: '/ai-coding/anthropic-blog/' },
+        { text: 'Claude Code 源码', link: '/ai-coding/claude-code-source/' },
       ]},
       { text: '基础设施', items: [
         { text: 'Docker 笔记', link: '/notes/docker/' },
         { text: '本地服务网关', link: '/notes/local-gateway/01-搭建指南' },
       ]},
-      { text: '人生感悟', link: '/life/' },
-      { text: '金融思维', link: '/finance/rogers-diffusion/' },
+      ...(isPrivate ? [
+        { text: '人生感悟', link: '/private/life/' },
+        { text: '金融思维', link: '/private/finance/rogers-diffusion/' },
+      ] : []),
     ],
 
     sidebar: {
+      // Claude Code 源码分析
+      '/ai-coding/claude-code-source/': [
+        { text: '概览', link: '/ai-coding/claude-code-source/' },
+        {
+          text: '前置知识',
+          collapsed: false,
+          items: [
+            { text: '核心概念', link: '/ai-coding/claude-code-source/prerequisites' },
+            { text: 'React 与终端渲染基础', link: '/ai-coding/claude-code-source/frontend-basics' },
+            { text: '协议与基础设施', link: '/ai-coding/claude-code-source/protocols-infra' },
+          ],
+        },
+        {
+          text: '概览',
+          collapsed: false,
+          items: [
+            { text: '项目架构总览', link: '/ai-coding/claude-code-source/architecture-overview' },
+          ],
+        },
+        {
+          text: '核心循环',
+          collapsed: false,
+          items: [
+            { text: '核心查询循环', link: '/ai-coding/claude-code-source/core-query-loop' },
+            { text: '工具系统', link: '/ai-coding/claude-code-source/tool-system' },
+          ],
+        },
+        {
+          text: '界面渲染',
+          collapsed: false,
+          items: [
+            { text: '终端渲染系统', link: '/ai-coding/claude-code-source/terminal-rendering' },
+          ],
+        },
+        {
+          text: '扩展能力',
+          collapsed: false,
+          items: [
+            { text: 'MCP 集成', link: '/ai-coding/claude-code-source/mcp-integration' },
+            { text: '多智能体系统', link: '/ai-coding/claude-code-source/multi-agent-system' },
+          ],
+        },
+        {
+          text: '基础设施',
+          collapsed: false,
+          items: [
+            { text: '状态管理与基础设施', link: '/ai-coding/claude-code-source/state-management' },
+            { text: '构建系统与代码消除', link: '/ai-coding/claude-code-source/build-system' },
+          ],
+        },
+      ],
+
       // Anthropic 工程博客笔记
       '/ai-coding/anthropic-blog/': [
         { text: '概览', link: '/ai-coding/anthropic-blog/' },
@@ -173,43 +228,42 @@ export default defineConfig({
         },
       ],
 
-      // 金融思维
-      '/finance/': [
-        {
-          text: '理论',
-          collapsed: false,
-          items: [
-            { text: '创新扩散理论', link: '/finance/rogers-diffusion/' },
-          ],
-        },
-      ],
-
-      // 人生感悟
-      '/life/': [
-        {
+      // 人生感悟（私有）
+      ...(isPrivate ? {
+        '/private/life/': [{
           text: '随笔',
           collapsed: false,
           items: [
-            { text: '概览', link: '/life/' },
-            { text: '内求', link: '/life/内求' },
-            { text: '警惕两种隐蔽的陷阱', link: '/life/警惕两种隐蔽的陷阱' },
-            { text: '命与运', link: '/life/命与运' },
-            { text: '理解但选择性赞同', link: '/life/理解但选择性赞同' },
-            { text: '相信', link: '/life/相信' },
-            { text: '赢', link: '/life/赢' },
-            { text: '消极见壁，积极见路', link: '/life/消极见壁，积极见路' },
-            { text: '事务都是多面的', link: '/life/事务都是多面的' },
-            { text: '三观与原则', link: '/life/sanguan-yuanze' },
+            { text: '概览', link: '/private/life/' },
+            { text: '内求', link: '/private/life/内求' },
+            { text: '警惕两种隐蔽的陷阱', link: '/private/life/警惕两种隐蔽的陷阱' },
+            { text: '命与运', link: '/private/life/命与运' },
+            { text: '理解但选择性赞同', link: '/private/life/理解但选择性赞同' },
+            { text: '相信', link: '/private/life/相信' },
+            { text: '赢', link: '/private/life/赢' },
+            { text: '消极见壁，积极见路', link: '/private/life/消极见壁，积极见路' },
+            { text: '事务都是多面的', link: '/private/life/事务都是多面的' },
+            { text: '三观与原则', link: '/private/life/sanguan-yuanze' },
           ],
-        },
-        ...(isPrivate ? [{
+        }, {
           text: '原则',
           collapsed: true,
           items: [
             { text: '我的原则', link: '/private/principles/我的原则' },
           ],
-        }] : []),
-      ],
+        }],
+      } : {}),
+
+      // 金融思维（私有）
+      ...(isPrivate ? {
+        '/private/finance/': [{
+          text: '理论',
+          collapsed: false,
+          items: [
+            { text: '创新扩散理论', link: '/private/finance/rogers-diffusion/' },
+          ],
+        }],
+      } : {}),
     },
 
     search: {
