@@ -1,5 +1,7 @@
 import { defineConfig } from 'vitepress'
 
+const isPrivate = process.env.PRIVATE === 'true'
+
 export default defineConfig({
   base: '/ai-tools-note/',
   lang: 'zh-CN',
@@ -150,14 +152,21 @@ export default defineConfig({
             { text: '内求', link: '/life/内求' },
             { text: '警惕两种隐蔽的陷阱', link: '/life/警惕两种隐蔽的陷阱' },
             { text: '命与运', link: '/life/命与运' },
-            { text: '三观与原则', link: '/life/sanguan-yuanze' },
             { text: '理解但选择性赞同', link: '/life/理解但选择性赞同' },
             { text: '相信', link: '/life/相信' },
             { text: '赢', link: '/life/赢' },
             { text: '消极见壁，积极见路', link: '/life/消极见壁，积极见路' },
             { text: '事务都是多面的', link: '/life/事务都是多面的' },
+            { text: '三观与原则', link: '/life/sanguan-yuanze' },
           ],
         },
+        ...(isPrivate ? [{
+          text: '原则',
+          collapsed: true,
+          items: [
+            { text: '我的原则', link: '/life/principles/我的原则' },
+          ],
+        }] : []),
       ],
     },
 

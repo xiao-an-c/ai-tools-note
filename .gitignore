@@ -23,3 +23,6 @@ Thumbs.db
 # 环境变量
 .env
 .env.local
+
+# 私人文件（不推送到远端）
+docs/life/principles/
