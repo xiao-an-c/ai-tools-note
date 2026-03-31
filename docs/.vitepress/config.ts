@@ -28,7 +28,10 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: 'GSD 笔记', link: '/ai-coding/gsd/' },
-      { text: 'Docker 笔记', link: '/notes/docker/' },
+      { text: '基础设施', items: [
+        { text: 'Docker 笔记', link: '/notes/docker/' },
+        { text: '本地服务网关', link: '/notes/local-gateway/01-搭建指南' },
+      ]},
       { text: 'Anthropic 博客', link: '/ai-coding/anthropic-blog/' },
       { text: '人生感悟', link: '/life/' },
     ],
@@ -91,6 +94,27 @@ export default defineConfig({
           items: [
             { text: '上下文工程原理', link: '/ai-coding/gsd/context-engineering' },
             { text: '进度追踪原理', link: '/ai-coding/gsd/progress-tracking' },
+          ],
+        },
+      ],
+
+      // 本地服务网关
+      '/notes/local-gateway/': [
+        {
+          text: '基础知识',
+          collapsed: false,
+          items: [
+            { text: 'DNS 基础', link: '/notes/local-gateway/00-DNS基础' },
+            { text: '反向代理', link: '/notes/local-gateway/02-反向代理' },
+            { text: 'macOS 网络基础', link: '/notes/local-gateway/03-macOS网络基础' },
+          ],
+        },
+        {
+          text: '实战',
+          collapsed: false,
+          items: [
+            { text: '搭建指南', link: '/notes/local-gateway/01-搭建指南' },
+            { text: '服务路由表', link: '/notes/local-gateway/04-服务路由表' },
           ],
         },
       ],
