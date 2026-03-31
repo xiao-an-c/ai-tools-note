@@ -53,19 +53,19 @@ Claude Code 有三个主要的入口文件，分别服务于不同的运行模�
 
 ```mermaid
 flowchart TD
-    A[init() 被调用] --> B[enableConfigs<br/>验证并启用配置系统]
-    B --> C[applySafeConfigEnvironmentVariables<br/>应用安全的环境变量]
-    C --> D[applyExtraCACertsFromConfig<br/>配置 TLS CA 证书]
-    D --> E[setupGracefulShutdown<br/>注册退出清理]
-    E --> F[initialize1PEventLogging<br/>初始化一方事件日志]
-    F --> G[populateOAuthAccountInfoIfNeeded<br/>填充 OAuth 账户信息]
-    G --> H[initializeRemoteManagedSettingsLoadingPromise<br/>启动远程设置加载]
-    H --> I[initializePolicyLimitsLoadingPromise<br/>启动策略限制加载]
-    I --> J[configureGlobalMTLS<br/>配置 mTLS]
-    J --> K[configureGlobalAgents<br/>配置代理]
-    K --> L[preconnectAnthropicApi<br/>预热 API 连接]
-    L --> M[initUpstreamProxy<br/>CCR 上游代理]
-    M --> N[ensureScratchpadDir<br/>创建 scratchpad 目录]
+    A["init() 被调用"] --> B["enableConfigs<br/>验证并启用配置系统"]
+    B --> C["applySafeConfigEnvironmentVariables<br/>应用安全的环境变量"]
+    C --> D["applyExtraCACertsFromConfig<br/>配置 TLS CA 证书"]
+    D --> E["setupGracefulShutdown<br/>注册退出清理"]
+    E --> F["initialize1PEventLogging<br/>初始化一方事件日志"]
+    F --> G["populateOAuthAccountInfoIfNeeded<br/>填充 OAuth 账户信息"]
+    G --> H["initializeRemoteManagedSettingsLoadingPromise<br/>启动远程设置加载"]
+    H --> I["initializePolicyLimitsLoadingPromise<br/>启动策略限制加载"]
+    I --> J["configureGlobalMTLS<br/>配置 mTLS"]
+    J --> K["configureGlobalAgents<br/>配置代理"]
+    K --> L["preconnectAnthropicApi<br/>预热 API 连接"]
+    L --> M["initUpstreamProxy<br/>CCR 上游代理"]
+    M --> N["ensureScratchpadDir<br/>创建 scratchpad 目录"]
 ```
 
 此外，`init.ts` 还导出 `initializeTelemetryAfterTrust()` 函数，在用户信任对话框确认后才初始化遥测（OpenTelemetry），以延迟加载约 400KB 的 OTel + protobuf 模块。
