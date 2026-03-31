@@ -38,6 +38,7 @@ export default defineConfig({
       ]},
       { text: 'Anthropic 博客', link: '/ai-coding/anthropic-blog/' },
       { text: '人生感悟', link: '/life/' },
+      { text: '金融思维', link: '/finance/rogers-diffusion/' },
     ],
 
     sidebar: {
@@ -166,6 +167,17 @@ export default defineConfig({
           items: [
             { text: '最佳实践', link: '/notes/docker/best-practices' },
             { text: '常见问题与排查', link: '/notes/docker/troubleshooting' },
+          ],
+        },
+      ],
+
+      // 金融思维
+      '/finance/': [
+        {
+          text: '理论',
+          collapsed: false,
+          items: [
+            { text: '创新扩散理论', link: '/finance/rogers-diffusion/' },
           ],
         },
       ],
