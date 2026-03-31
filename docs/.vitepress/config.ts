@@ -3,10 +3,14 @@ import { defineConfig } from 'vitepress'
 const isPrivate = process.env.PRIVATE === 'true'
 
 export default defineConfig({
-  base: '/ai-tools-note/',
+  base: isPrivate ? '/' : '/ai-tools-note/',
   lang: 'zh-CN',
   title: '学习笔记',
   description: '记录学习过程',
+  srcExclude: isPrivate ? [] : ['**/private/**'],
+  rewrites: isPrivate
+    ? { 'private/index.md': 'index.md', 'index.md': 'original-home.md' }
+    : {},
 
   markdown: {
     config: (md) => {
@@ -188,7 +192,7 @@ export default defineConfig({
           text: '原则',
           collapsed: true,
           items: [
-            { text: '我的原则', link: '/life/principles/我的原则' },
+            { text: '我的原则', link: '/private/principles/我的原则' },
           ],
         }] : []),
       ],
