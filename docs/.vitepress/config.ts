@@ -31,12 +31,14 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
-      { text: 'GSD 笔记', link: '/ai-coding/gsd/' },
+      { text: 'AI 笔记', items: [
+        { text: 'GSD 笔记', link: '/ai-coding/gsd/' },
+        { text: 'Anthropic 博客', link: '/ai-coding/anthropic-blog/' },
+      ]},
       { text: '基础设施', items: [
         { text: 'Docker 笔记', link: '/notes/docker/' },
         { text: '本地服务网关', link: '/notes/local-gateway/01-搭建指南' },
       ]},
-      { text: 'Anthropic 博客', link: '/ai-coding/anthropic-blog/' },
       { text: '人生感悟', link: '/life/' },
       { text: '金融思维', link: '/finance/rogers-diffusion/' },
     ],
