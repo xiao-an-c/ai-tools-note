@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import mathjax3 from 'markdown-it-mathjax3'
 
 const isPrivate = process.env.PRIVATE === 'true'
 
@@ -14,6 +15,7 @@ export default defineConfig({
 
   markdown: {
     config: (md) => {
+      md.use(mathjax3)
       // 自定义 mermaid 代码块渲染 - 使用 Vue 组件
       const defaultRender = md.renderer.rules.fence!
       md.renderer.rules.fence = (tokens, idx, options, env, self) => {
@@ -261,6 +263,14 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: '创新扩散理论', link: '/private/finance/rogers-diffusion/' },
+            { text: '凯利公式', link: '/private/finance/kelly-criterion/' },
+          ],
+        }, {
+          text: '交易系统',
+          collapsed: false,
+          items: [
+            { text: '职业超级短线交易系统', link: '/private/finance/short-term-trading-system' },
+            { text: '我的交易系统', link: '/private/finance/my-trading-system' },
           ],
         }],
       } : {}),

@@ -14,5 +14,10 @@
   "devDependencies": {
     "mermaid": "^11.13.0",
     "vitepress": "^1.6.0"
+  },
+  "dependencies": {
+    "echarts": "^6.0.0",
+    "markdown-it-mathjax3": "^4.3.2",
+    "vue-echarts": "^8.0.1"
   }
 }
