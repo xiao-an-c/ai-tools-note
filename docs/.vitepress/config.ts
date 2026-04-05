@@ -37,6 +37,7 @@ export default defineConfig({
         { text: 'GSD 笔记', link: '/ai-coding/gsd/' },
         { text: 'Anthropic 博客', link: '/ai-coding/anthropic-blog/' },
         { text: 'Claude Code 源码', link: '/ai-coding/claude-code-source/' },
+        { text: 'Excalidraw 图表', link: '/ai-coding/excalidraw-diagram-skill/' },
       ]},
       { text: '基础设施', items: [
         { text: 'Docker 笔记', link: '/notes/docker/' },
@@ -97,6 +98,35 @@ export default defineConfig({
           items: [
             { text: '状态管理与基础设施', link: '/ai-coding/claude-code-source/state-management' },
             { text: '构建系统与代码消除', link: '/ai-coding/claude-code-source/build-system' },
+          ],
+        },
+      ],
+
+      // Excalidraw 图表技能原理
+      '/ai-coding/excalidraw-diagram-skill/': [
+        {
+          text: '概览',
+          collapsed: false,
+          items: [
+            { text: '技能概览', link: '/ai-coding/excalidraw-diagram-skill/' },
+          ],
+        },
+        {
+          text: '原理',
+          collapsed: true,
+          items: [
+            { text: '提示词即软件', link: '/ai-coding/excalidraw-diagram-skill/prompt-as-software' },
+            { text: '可视化论证方法论', link: '/ai-coding/excalidraw-diagram-skill/visual-argument-methodology' },
+            { text: '渲染管线', link: '/ai-coding/excalidraw-diagram-skill/render-pipeline' },
+            { text: '大型图表策略', link: '/ai-coding/excalidraw-diagram-skill/large-diagram-strategy' },
+          ],
+        },
+        {
+          text: '附录',
+          collapsed: true,
+          items: [
+            { text: 'SKILL.md 原文', link: '/ai-coding/excalidraw-diagram-skill/skill-original' },
+            { text: 'SKILL.md 译文', link: '/ai-coding/excalidraw-diagram-skill/skill-translation' },
           ],
         },
       ],

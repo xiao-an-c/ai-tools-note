@@ -9,9 +9,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## 常用命令
 
 ```bash
-npm run docs:dev      # 启动开发服务器 (localhost:5173)
-npm run docs:build    # 构建静态站点 → docs/.vitepress/dist/
-npm run docs:preview  # 预览构建结果
+npm run docs:dev          # 启动开发服务器 (localhost:5173)
+npm run docs:build        # 构建静态站点 → docs/.vitepress/dist/
+npm run docs:build:private # 构建私有版本（含 private/ 内容）→ 部署到 note.d.me
+npm run docs:preview      # 预览构建结果
 ```
 
 ## 项目结构
