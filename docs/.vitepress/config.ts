@@ -1,5 +1,10 @@
 import { defineConfig } from 'vitepress'
 import mathjax3 from 'markdown-it-mathjax3'
+import { resolve, dirname } from 'path'
+import { fileURLToPath } from 'url'
+import excalidrawPlugin from '../../lib/vite-plugin-excalidraw.mjs'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 const isPrivate = process.env.PRIVATE === 'true'
 
@@ -12,6 +17,12 @@ export default defineConfig({
   rewrites: isPrivate
     ? { 'private/index.md': 'index.md', 'index.md': 'original-home.md' }
     : {},
+
+  vite: {
+    plugins: [
+      excalidrawPlugin({ docsRoot: resolve(__dirname, '..') })
+    ]
+  },
 
   markdown: {
     config: (md) => {
@@ -42,9 +53,11 @@ export default defineConfig({
       { text: '基础设施', items: [
         { text: 'Docker 笔记', link: '/notes/docker/' },
         { text: '本地服务网关', link: '/notes/local-gateway/01-搭建指南' },
+        { text: '本地测试', link: '/notes/local-test/01-请求调试' },
       ]},
       ...(isPrivate ? [
         { text: '人生感悟', link: '/private/life/' },
+        { text: '认知手册', link: '/private/cognitive-handbook/' },
         { text: '金融思维', link: '/private/finance/rogers-diffusion/' },
       ] : []),
     ],
@@ -209,6 +222,18 @@ export default defineConfig({
           items: [
             { text: '搭建指南', link: '/notes/local-gateway/01-搭建指南' },
             { text: '服务路由表', link: '/notes/local-gateway/04-服务路由表' },
+            { text: '本地命令工具', link: '/notes/local-gateway/05-本地命令工具' },
+          ],
+        },
+      ],
+
+      // 本地测试
+      '/notes/local-test/': [
+        {
+          text: '本地测试',
+          collapsed: false,
+          items: [
+            { text: '请求调试', link: '/notes/local-test/01-请求调试' },
           ],
         },
       ],
@@ -286,12 +311,42 @@ export default defineConfig({
         }],
       } : {}),
 
+      // 认知手册（私有）
+      ...(isPrivate ? {
+        '/private/cognitive-handbook/': [{
+          text: '手册',
+          collapsed: false,
+          items: [
+            { text: '总览', link: '/private/cognitive-handbook/' },
+            { text: '使用说明', link: '/private/cognitive-handbook/00-how-to-use' },
+          ],
+        }, {
+          text: '正文',
+          collapsed: false,
+          items: [
+            { text: '第 1 章：底层认知', link: '/private/cognitive-handbook/01-foundation' },
+            { text: '第 2 章：状态识别', link: '/private/cognitive-handbook/02-state-diagnosis' },
+            { text: '第 3 章：负循环应对', link: '/private/cognitive-handbook/03-negative-cycle' },
+            { text: '第 4 章：思维工具箱', link: '/private/cognitive-handbook/04-thinking-tools' },
+            { text: '第 5 章：人际原则', link: '/private/cognitive-handbook/05-interpersonal' },
+            { text: '第 6 章：行动规则', link: '/private/cognitive-handbook/06-action-rules' },
+          ],
+        }, {
+          text: '附录',
+          collapsed: true,
+          items: [
+            { text: '原文', link: '/private/cognitive-handbook/appendix-originals' },
+          ],
+        }],
+      } : {}),
+
       // 金融思维（私有）
       ...(isPrivate ? {
         '/private/finance/': [{
           text: '理论',
           collapsed: false,
           items: [
+            { text: 'K线与股票理解', link: '/private/finance/kline-reading' },
             { text: '创新扩散理论', link: '/private/finance/rogers-diffusion/' },
             { text: '凯利公式', link: '/private/finance/kelly-criterion/' },
           ],

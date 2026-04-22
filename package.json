@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "mermaid": "^11.13.0",
+    "puppeteer-core": "^24.42.0",
     "vitepress": "^1.6.0"
   },
   "dependencies": {
